@@ -1,0 +1,14 @@
+<% if flash[:error] %>
+<% flash[:error].each do |error| %>
+    <%= error %>
+<% end %>
+<% end %>
+
+<h1>Buy a new ticket</h1>
+
+<%= form_for @ticket do |f| %>
+    Passenger: <%= f.collection_select :passenger_id, @passengers, :id, :name %><br>
+    Airport: <%= f.collection_select :airport_id, @airports, :id, :name %><br>
+    Price: <%= f.number_field :price %><br>
+    <%= f.submit "Create ticket" %>
+    <% end %>

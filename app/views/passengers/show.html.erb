@@ -1,0 +1,12 @@
+<h1>Name: <%= @passenger.name %></h1>
+<h2>Age: <%= @passenger.age %></h2>
+<br>
+<h2><%= pluralize(@passenger.tickets.count, "ticket") + " found" %></h2>
+<p>Destinations: </p>
+<ul>
+<% @passenger.tickets.each do |ticket| %>
+    <li><%= link_to ticket.airport.name, ticket_path(ticket) %></li>
+    <% end %>
+<%= button_to "Edit passenger", edit_passenger_path(@passenger), method: :get %>
+<%= button_to "Delete passenger", passenger_path(@passenger), method: :delete %>
+

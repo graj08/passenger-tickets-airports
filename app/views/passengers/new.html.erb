@@ -1,0 +1,13 @@
+<% if flash[:error] %>
+<% flash[:error].each do |error| %>
+    <%= error %>
+<% end %>
+<% end %>
+
+<h1>Create a new passenger</h1>
+<br>
+<%= form_for @passenger do |f| %>
+    Passenger name: <%= f.text_field :name %><br>
+    Passenger age: <%= f.number_field :age %><br>
+    <%= f.submit "Create passenger" %><br>
+    <% end %>
